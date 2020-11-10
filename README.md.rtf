@@ -2,10 +2,29 @@
 \cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 {\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww25100\viewh14280\viewkind0
+\paperw11900\paperh16840\margl1440\margr1440\vieww24800\viewh13980\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 # SPRING WEBFLUX\
 \
 ##Entorno:\
-- Spring Tools IDE (https://spring.io/tools)}
+- Spring Tools IDE (https://spring.io/tools)\
+- Usamos Spring Developer Tools\
+\
+## Reactive\
+- Maneja streams de maneja asincrona\
+- Subject (Observable) es el publisher. Notifica los cambios a los Subscriptor (Observer)\
+- Dos tipos de Observables (Flux -> 0 a n. Mono -> 0)\
+- reactive-streams.org -> Especificacion \
+- Imlpementaciones de esta especificaci\'f3n: reactiveX, projectReactor (la que usa Spring)\
+- Por defecto, las integraciones con SQL normal no tiene soporte reactivo. Habr\'eda que integrarse normalmente y convertirlo a reactivo. \
+\
+- Si se trabaja con BBDD es recomendable que tengan soporte reactive, como Mongo\
+\
+## Spring\
+- Spring MVC es bloquearte y sincrona. COnstruido sobre el API Servlet de toda la vida.\
+- Spring Web Flux es no bloquearte y admite contrapresi\'f3n.\
+	- Se debe ejecutar en servidores que admitan peticiones reactivas (Betty, Undertow, Tomcat (Contenedor Servlet 3.1+))\
+	- Se integra con vistas Thymeleaf que act\'faa como Observer\
+	- Se integra tambi\'e9n con Mongo de forma reactiva.\
+	}
