@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- "th" es para la integración con ThymeLeaf  -->
+<title th:text="${titulo}">Insert title here</title>
+</head>
+<body>
+	<h1 th:text="${titulo}"></h1>
+	<a th:href="@{/listar}">Volver a listar</a>
+	<div>
+		<form th:action="@{/form}" method="post" th:object="${producto}" enctype="multipart/form-data"> <!-- enctype="multipart/form-data" para subir archivos -->
+			<!--  <input th:if="${producto.id != null}" type="hidden" th:field="*{id}"/>  --><!-- Si el id es distinto de null se obtiene el id del producto. 
+																								Si especificamos el SessionAttributes en el controlador no hace falta hacer esto -->
+			<div>
+				<label for="nombre">Nombre</label>
+				<div><input type="text" th:field="*{nombre}"/></div>
+				<small th:errors="*{nombre}"></small> <!-- Mostraría el error del nombre si se produce -->
+			</div>
+			<div>
+				<label for="precio">Precio</label>
+				<div><input type="number" th:field="*{precio}"/></div>
+				<small th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></small> <!-- Mostraría el error del precio si se produce -->
+			</div>
+			<div>
+				<label for="createAt">Fecha</label>
+				<div><input type="date" th:field="*{createAt}" /></div>
+			</div>
+			<div>
+				<label for="categoria.id">Categoria</label>
+				<div>
+					<select th:field="*{categoria.id}" >
+						<option value="">-- Seleccionar --</option>
+						<option th:each="categoria: ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>
+					</select>
+				</div>
+				<small th:if="${#fields.hasErrors('categoria.id')}"  th:errors="*{categoria.id}"></small>
+			</div>
+			<div>
+				<label for="file">Foto</label>
+				<div><input type="file" name="file"/></div>
+			</div>
+			<div>
+				<label for=""></label>
+				<div><input type="submit" th:value="${boton}"/></div>
+			</div>
+		</form>
+	
+	</div>
+</body>
+</html>
