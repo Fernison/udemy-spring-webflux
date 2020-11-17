@@ -10,6 +10,9 @@
 ##Entorno:\
 - Spring Tools IDE (https://spring.io/tools)\
 - Usamos Spring Developer Tools\
+- Los proyectos los creamos con Spring Starter Project y a\'f1adiendo las dependencias\
+	-	Para a\'f1adir otra dependencia se puede hacer desde el propio Eclipse en las opciones del proyecto, Spring -> Add starter\
+- Se pueden arrancar m\'e1s instancias d los Ms desde Eclipse directamente. Ir a Run As -> Run Configuration y en \'93Arguments\'94, a\'f1adir \'93-Dserver.port=8081\'94 con un puerto distinto cada vez. Es importante eliminarlo despu\'e9s de usarlo si no se queda en memoria y siempre se arranca con ese puerto \
 \
 ## Reactive\
 - Maneja streams de maneja asincrona\
@@ -45,4 +48,16 @@
 ## Thymeleaf\
 \
 - Los helpers van precedido de \'93#\'94\
-	}
+\
+## Tests\
+\
+- Para ejecutar los tests usando macen: 
+\f1\fs22 \cf3 \CocoaLigature0 ./mvnw test
+\f0\fs24 \cf0 \CocoaLigature1 \
+\
+- \'93mvnw\'94 se crea al crear el proyecto Spring Starter Project\
+\
+## Eureka\
+\
+- Con las versiones de Spring y Spring Cloud que vienen al crear el proyecto con Spring Starter no arranca bien. Tampoco pilla el puerto que se le personaliza en Application.properties.\
+- Para que funcione, usar las versiones del pom.xml del proyecto.}

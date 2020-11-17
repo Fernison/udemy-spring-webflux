@@ -79,6 +79,7 @@ public class ProductoController {
 	public Mono<ResponseEntity<Resource>> ver(@PathVariable String nombreFoto) throws MalformedURLException {
 		Path ruta = Paths.get(path).resolve(nombreFoto).toAbsolutePath();
 		Resource imagen = new UrlResource(ruta.toUri());
+		// También se puede devolver un Mono de ResponseEntity que contenga la respuesta
 		return Mono.just(
 				ResponseEntity.ok()
 					.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + imagen.getFilename() + "\"")
